@@ -1,10 +1,9 @@
-
 name: Trigger Automation Repo
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
   trigger:
@@ -16,5 +15,3 @@ jobs:
           token: ${{ secrets.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 }}
           repository: Priya-299/CIScriptRun
           event-type: run-tests
-
-
