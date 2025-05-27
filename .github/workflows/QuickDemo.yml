@@ -1,27 +1,20 @@
-name: Playwright Tests
+
+name: Trigger Automation Repo
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main  
 
 jobs:
-  test:
+  trigger:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Trigger Playwright tests in Repo B
+        uses: peter-evans/repository-dispatch@v2
         with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm install
+          token: ${{ secrets.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 }}
+          repository: Priya-299/CIScriptRun
+          event-type: run-tests
 
-      - name: Install Playwright
-        run: npx playwright install 
 
-      - name: Run Playwright tests
-        run: npx playwright test
